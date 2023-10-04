@@ -1,4 +1,4 @@
-const { Movie } = require("../models/index");
+const { Movie , User } = require("../models/index");
 
 class MovieController {
   static async handlerCreate(req, res, next) {
@@ -30,7 +30,9 @@ class MovieController {
 
   static async readAll(req, res, next) {
     try {
-      const movie = await Movie.findAll();
+      const movie = await Movie.findAll({
+        include : User
+      });
       res.status(200).json(movie);
     } catch (error) {
       res.status(500).json({

@@ -6,10 +6,8 @@ const bcrypt = require("bcryptjs");
 class UserController {
   static async handlerRegister(req, res, next) {
     try {
-      //   console.log(GenreController, "<<<<<<<<<<<");
-      //   console.log(User, "<<<<<<<<<<<");
-      const { username , email, password , phoneNumer ,address } = req.body;
-      const user = await User.create({ username , email, password , phoneNumer ,address });
+      const { username , email, password , phoneNumber ,address } = req.body;
+      const user = await User.create({ username , email, password , phoneNumber ,address });
       res.status(201).json({
         id: user.id,
         email: user.email,
