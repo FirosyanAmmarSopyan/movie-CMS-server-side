@@ -5,8 +5,8 @@
         "trailerUrl": "https://www.example.com/trailer1",
         "imgUrl": "https://www.example.com/image1",
         "rating": 8,
-        "genreId": 11,
-        "authorId": 12
+        "genreId": 1,
+        "authorId": 2
     },
     {
         "title": "Movie 2",
@@ -14,8 +14,8 @@
         "trailerUrl": "https://www.example.com/trailer2",
         "imgUrl": "https://www.example.com/image2",
         "rating": 9,
-        "genreId": 11,
-        "authorId": 12
+        "genreId": 1,
+        "authorId": 2
     },
     {
         "title": "Movie 3",
@@ -23,8 +23,8 @@
         "trailerUrl": "https://www.example.com/trailer3",
         "imgUrl": "https://www.example.com/image3",
         "rating": 8,
-        "genreId": 16,
-        "authorId": 15
+        "genreId": 6,
+        "authorId": 5
     },
     {
         "title": "Movie 4",
@@ -32,8 +32,8 @@
         "trailerUrl": "https://www.example.com/trailer4",
         "imgUrl": "https://www.example.com/image4",
         "rating": 8,
-        "genreId": 18,
-        "authorId": 14
+        "genreId": 8,
+        "authorId": 4
     },
     {
         "title": "Movie 5",
@@ -41,8 +41,8 @@
         "trailerUrl": "https://www.example.com/trailer5",
         "imgUrl": "https://www.example.com/image5",
         "rating": 7,
-        "genreId": 12,
-        "authorId": 16
+        "genreId": 2,
+        "authorId": 6
     },
     {
         "title": "Movie 6",
@@ -50,8 +50,8 @@
         "trailerUrl": "https://www.example.com/trailer6",
         "imgUrl": "https://www.example.com/image6",
         "rating": 9,
-        "genreId": 17,
-        "authorId": 19
+        "genreId": 7,
+        "authorId": 9
     },
     {
         "title": "Movie 7",
@@ -59,8 +59,8 @@
         "trailerUrl": "https://www.example.com/trailer7",
         "imgUrl": "https://www.example.com/image7",
         "rating": 8,
-        "genreId": 14,
-        "authorId": 15
+        "genreId": 4,
+        "authorId": 5
     },
     {
         "title": "Movie 8",
@@ -68,8 +68,8 @@
         "trailerUrl": "https://www.example.com/trailer8",
         "imgUrl": "https://www.example.com/image8",
         "rating": 7,
-        "genreId": 16,
-        "authorId": 13
+        "genreId": 6,
+        "authorId": 3
     },
     {
         "title": "Movie 9",
@@ -77,8 +77,8 @@
         "trailerUrl": "https://www.example.com/trailer9",
         "imgUrl": "https://www.example.com/image9",
         "rating": 8,
-        "genreId": 19,
-        "authorId": 18
+        "genreId": 9,
+        "authorId": 8
     },
     {
         "title": "Movie 10",
@@ -86,7 +86,7 @@
         "trailerUrl": "https://www.example.com/trailer10",
         "imgUrl": "https://www.example.com/image10",
         "rating": 9,
-        "genreId": 14,
-        "authorId": 15
+        "genreId": 4,
+        "authorId": 5
     }
 ]

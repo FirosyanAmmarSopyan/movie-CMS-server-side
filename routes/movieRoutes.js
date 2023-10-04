@@ -1,5 +1,5 @@
 const express = require('express')
-const movieRoutes = express()
+const movieRoutes = express.Router()
 const MovieController  = require('../controllers/movie')
 
 movieRoutes.post('/' , MovieController.handlerCreate)
