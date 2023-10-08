@@ -1,9 +1,9 @@
-const { Movie , User } = require("../models/index");
+const { Movie , User , Genre } = require("../models/index");
 
 class MovieController {
   static async handlerCreate(req, res, next) {
     try {
-      const { title, synopsis, trailerUrl, imgUrl, rating, genreId, authorId } =
+      const { title, synopsis, trailerUrl, imgUrl, rating, genreId } =
         req.body;
       const movie = await Movie.create({
         title,
@@ -12,32 +12,23 @@ class MovieController {
         imgUrl,
         rating,
         genreId,
-        authorId,
+        authorId : req.user.id
       });
       res.status(201).json({ movie });
     } catch (error) {
       console.log(error);
-      if (error.name === "SequelizeValidationError") {
-        const errors = error.errors[0].message;
-        res.status(400).json({ error: errors });
-      } else {
-        res.status(500).json({
-          error: "Internal Server Error",
-        });
-      }
+     next(error)
     }
   }
 
   static async readAll(req, res, next) {
     try {
       const movie = await Movie.findAll({
-        include : User
+        include : [User , Genre]
       });
       res.status(200).json(movie);
     } catch (error) {
-      res.status(500).json({
-        error: "Internal Server Errors",
-      });
+     next(error)
     }
   }
 
@@ -53,9 +44,7 @@ class MovieController {
     //   console.log(id, movie.title);
       res.status(200).json(movie);
     } catch (error) {
-      res.status(500).json({
-        error: "Internal Server Errors",
-      });
+      next(error)
     }
   }
 

@@ -7,9 +7,7 @@ class GenreController {
             const genre = await Genre.findAll()
             res.status(200).json(genre)
         } catch (error) {
-            res.status(500).json({
-                error : 'Internal Server Errors'
-            })
+            next(error)
         }
     }
 }
