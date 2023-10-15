@@ -9,11 +9,12 @@ async function authorization( req , res ,next) {
     let user = req.user
     
     const movie = await Movie.findByPk(id)
-
+    
     //2.cek movie ada di db atau tidak
     if (!movie) {
         throw { name : 'not found'}
     }
+    console.log(movie , '<<<<<<< ini');
     // console.log(movie);
 
     //3. cek kuasa admin

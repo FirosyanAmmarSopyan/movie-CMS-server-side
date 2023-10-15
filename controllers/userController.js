@@ -22,9 +22,7 @@ class UserController {
       });
     } catch (error) {
       console.log(error);
-      res.status(400).json({
-        error: "errors",
-      });
+    next(error)
     }
   }
 
@@ -38,9 +36,7 @@ class UserController {
       //3.validasi apakah email ini ada
 
       if (!user) {
-        res.status(401).json({
-          error: "error invalid username or email or password",
-        });
+        throw {name :"error invalid email or password" }
       } else {
         //4. kalau ada langsung compare password apakah valid
         let validPw = bcrypt.compareSync(password, user.password);
@@ -58,16 +54,11 @@ class UserController {
             access_token,
           });
         } else {
-          res.status(401).json({
-            error: "error invalid username or email or password",
-          });
+          throw {name :"error invalid username or email or password" }
         }
       }
     } catch (error) {
-      console.log(error);
-      res.status(500).json({
-        error: "Internal Server Error",
-      });
+      next(error)
     }
   }
 
@@ -102,9 +93,7 @@ class UserController {
       })
     } catch (error) {
       console.log(error);
-      res.status(500).json({
-        message: "Internal Server Error",
-      });
+    next(error)
     }
   }
 }

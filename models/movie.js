@@ -63,8 +63,14 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     genreId: DataTypes.INTEGER,
-    authorId: DataTypes.INTEGER
+    authorId: DataTypes.INTEGER,
+    status : DataTypes.STRING
   }, {
+    hooks : {
+      beforeCreate(movie){
+          movie.status = 'active'
+      }
+    },
     sequelize,
     modelName: 'Movie',
   });
