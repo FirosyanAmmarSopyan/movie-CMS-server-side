@@ -17,7 +17,7 @@ class MovieController {
 
       await History.create({
         title : movie.title,
-        description : `POST : new ${movie.title} with id ${id} has been created`,
+        description : `POST : new ${movie.title} with id ${movie.id} has been created`,
         updatedBy : req.user.username
       })
 

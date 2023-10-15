@@ -322,3 +322,83 @@ For read all genre
    "error" : "Internal Server Error"
 }
 ```
+
+### PUT /movies/:id
+#### Description
+- Edit a movies data based on given id
+
+#### Request
+- headers
+    
+json
+    {
+        "access_token":"string"
+    }
+    
+#### Response
+_200 - OK_
+- Body
+    
+json
+    {
+      "statusCode": 200,
+      "message": "done edit movies from id ${id}"
+    }
+    
+_403 - Forbidden_
+- Body
+    
+json
+    {
+      "statusCode": 403,
+      "error": {
+        "message": "Forbiden"
+      }
+    }
+404 - Not Found
+Body
+  {
+    "statusCode": 404,
+    "error": {
+      "message": "error not found"
+    }
+  }
+  
+PACTH /movies/:id
+#### Description
+Edit a movies status based on given id
+
+#### Request
+headers
+  {
+      "access_token":"string"
+  }
+  
+#### Response
+200 - OK
+Body
+  {
+    "statusCode": 200,
+    "message": "movies with id ${id} status has been updated from ${findMovies.status} into ${status}"
+  }
+  
+_403 - Forbidden_
+- Body
+    
+json
+    {
+      "statusCode": 403,
+      "error": {
+        "message": "Forbiden"
+      }
+    }
+
+
+404 - Not Found
+Body
+  {
+    "statusCode": 404,
+    "error": {
+      "message": "error
+  }
+  }
