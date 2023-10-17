@@ -7,18 +7,21 @@ const port = process.env.PORT || 3000;
 const cors = require("cors");
 const movieRoutes = require("./routes/movieRoutes");
 const genreRoutes = require("./routes/genreRoutes");
-const userRoutes = require("./routes/userRoutes");
-const historyRoutes = require('./routes/history')
+const historyRoutes = require('./routes/history');
 const indexRoutes = require("./routes/index");
+const customerRoutes = require('./routes/customerRoutes');
+const customerPageRoutes = require('./routes/customerPageRoutes')
 const { authentication } = require("./middlewares/authentication");
-// const { authorization } = require('./middlewares/authorization')
+
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use("/", indexRoutes);
+app.use("/customer", customerRoutes)
 
+app.use('/cust-pages' , customerPageRoutes)
 app.use(authentication);
 app.use('/history' , historyRoutes)
 app.use("/movies", movieRoutes);

@@ -72,7 +72,7 @@ class UserController {
       });
       //2.buat ambil payload
       const payload = ticket.getPayload();
-      console.log(payload, "<<<<<<<<");
+      // console.log(payload, "<<<<<<<<");
       //3. find or create data to db
       const [user, created] = await User.findOrCreate({
         where: {
@@ -87,6 +87,7 @@ class UserController {
         },
       });
       //4. create token
+      console.log(process.env.SECRET_KEY_JWT , '<<<<<<< di gugel login');
       const access_token = jwt.sign({ id : user.id , email : user.email}, process.env.SECRET_KEY_JWT);
       res.status(200).json({
         access_token
@@ -96,6 +97,7 @@ class UserController {
     next(error)
     }
   }
+    
 }
 
 module.exports = UserController;

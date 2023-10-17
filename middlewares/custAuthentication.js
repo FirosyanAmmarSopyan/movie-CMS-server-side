@@ -1,9 +1,9 @@
 const jwt = require("jsonwebtoken");
-const {User} = require('../models/index')
+const {Customer} = require('../models/index')
 
-async function authentication(req, res, next) {
+async function custAuthentication(req, res, next) {
   try {
-    console.log("masuk authenti");
+    console.log("masuk authenti customer");
     // console.log(req.headers);
     //1. cek apakah verifi token
     let access_token = req.headers.access_token;
@@ -14,14 +14,13 @@ async function authentication(req, res, next) {
     }
     // console.log(access_token , '<<<<<<<<<<<');
     //3. pastikan bahwa data yg disimpan pada pyaload itu asli
-    console.log(process.env.SECRET_KEY_JWT , '<<<<<<<');
+    // console.log(process.env.SECRET_KEY_JWT , '<<<<<<<');
     let payload = jwt.verify(access_token, process.env.SECRET_KEY_JWT);
-    let user = await User.findByPk(payload.id)
-    if (!user) {
+    let customer = await Customer.findByPk(payload.id)
+    if (!customer) {
         throw ({name : "Unauthenticated"})
     }else{
-        req.user = user
-        // console.log(user.role , `<<<<<<<<`);
+        req.customer = customer
     }
     next()
   } catch (error) {
@@ -44,4 +43,4 @@ async function authentication(req, res, next) {
   }
 }
 
-module.exports = { authentication };
+module.exports = { custAuthentication };

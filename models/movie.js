@@ -17,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
       Movie.belongsTo(models.User , {
         foreignKey : 'authorId'
       })
+      Movie.hasMany(models.Favorite , {
+        foreignKey : 'movieId'
+      })
     }
   }
   Movie.init({
