@@ -42,7 +42,9 @@ class MovieController {
   static async renderDetail(req, res, next) {
     try {
       const { id } = req.params;
-      const movie = await Movie.findByPk(id);
+      const movie = await Movie.findByPk(id , {
+        include : [Genre]
+      });
       if (!movie) {
         throw {name : 'not found'}
       }

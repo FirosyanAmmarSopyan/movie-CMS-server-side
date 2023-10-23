@@ -54,7 +54,7 @@ class UserController {
             access_token,
           });
         } else {
-          throw {name :"error invalid username or email or password" }
+          throw {name :"error invalid email or password" }
         }
       }
     } catch (error) {

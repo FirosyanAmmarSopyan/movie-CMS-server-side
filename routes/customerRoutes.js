@@ -5,6 +5,8 @@ const CustomerController = require('../controllers/customerController')
 
 customerRoutes.post('/register' , CustomerController.handlerRegisterClient)
 customerRoutes.post('/login' , CustomerController.handlerLoginClient)
+customerRoutes.post("/login-google", CustomerController.googleLogin);
+
 
 
 

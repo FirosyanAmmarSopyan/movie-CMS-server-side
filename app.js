@@ -20,8 +20,8 @@ app.use(express.json());
 
 app.use("/", indexRoutes);
 app.use("/customer", customerRoutes)
-
 app.use('/cust-pages' , customerPageRoutes)
+
 app.use(authentication);
 app.use('/history' , historyRoutes)
 app.use("/movies", movieRoutes);
@@ -32,8 +32,8 @@ app.use((err, req, res, next) => {
   let status = 500;
   let message = "Internal Servers Error";
 
-  if (err.name === 'SequelizeValidationError') {
-    const errors = error.errors[0].message;
+  if (err.name === 'SequelizeValidationError' || err.name === 'SequelizeUniqueConstraintError') {
+    const errors = err.errors[0].message;
     status = 400
     message = errors
   }else if (err.name === 'not found') {
@@ -45,6 +45,12 @@ app.use((err, req, res, next) => {
   }else if (err.name === 'cant edit with same status') {
     status = 400
     message = 'cant edit with same status'
+  }else if(err.name === 'email required'){
+    status = 400
+    message = 'email required'
+  }else if(err.name === 'password required'){
+    status = 400
+    message = 'password required'
   }
 
   res.status(status).json({ error: message });
@@ -53,3 +59,4 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
   console.log(`I LOP U ${port}`);
 });
+ module.exports = app
